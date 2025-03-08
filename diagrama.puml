@@ -1,0 +1,262 @@
+@startuml Diagrama
+class SonicGame {
+    -nivelActual
+    +Iniciar()
+    +Pausar()
+    +Reiniciar()
+    +ActualizarNivel(Nivel): Nivel
+}
+
+class Anillo {
+    +Recoger()
+    +ObtenerValor(): Puntuacion
+}
+
+class Sonic {
+    -experiencia
+    +Correr()
+    +Saltar()
+    +RecogerAnillo(Anillo)
+    +ObtenerVida(): VidaExtra
+    +UsarPowerUp(PowerUp): PowerUp
+}
+class Animal
+class VidaExtra {
+    +Recoger()
+    +ObtenerVida(): VidaExtra
+}
+
+class Tv {
+    +ObtenerPremio(): Premio
+}
+
+class Checkpoint {
+    +Activar()
+    +ObtenerPosicion(): Posicion
+}
+
+class GoalSign {
+    +Alcanzar()
+    +ObtenerPuntuacion(): Puntuacion
+}
+
+class Escudo {
+    -proteccion
+    +Activar()
+    +ObtenerProteccion(): Proteccion
+}
+
+class Invincibilidad {
+    +Activar()
+    +ObtenerInvicibilidad(): Invicibilidad
+}
+
+class SpeedShoe {
+    +Activar()
+    +ObtenerRapidez(): Rapidez
+}
+
+class Resorte {
+    +Saltar()
+    +ObtenerImpulso(): Impulso
+}
+
+class LoopLoop {
+    +Entrar()
+    +ObtenerVelocidad(): Velocidad
+}
+
+class SpeedBooster {
+    +Activar()
+    +ObtenerVelocidad(): Velocidad
+}
+
+class TunelTubo {
+    +Entrar()
+    +ObtenerCaminos(): Caminos
+}
+
+class PlataformaMovil {
+    +Moverse()
+}
+
+class PuenteColgante {
+    +Cruzar()
+}
+
+class Pua {
+    +Pinchar()
+    +ObtenerDaño(): Daño
+}
+
+class Agua {
+    +Sumergir()
+}
+
+class BurbujaAire {
+    -aire
+    +Respirar()
+    +ObtenerDuracion(): Duracion
+}
+
+class Badnik {
+    -mecanismo
+    +Atacar()
+    +ObtenerDaño(): Daño
+}
+
+class AnimalAtrapado {
+    +Liberar()
+}
+
+class DrRobotnik {
+    +Atacar()
+    +ObtenerDaño(): Daño
+}
+
+class MaquinaRobotnik {
+    -mecanismo
+    +Atacar()
+    +ObtenerDaño(): Daño
+}
+
+class Maquina
+class EstatuaSonic
+class Jugador
+class ChaosEmerald
+class Tiempo {
+    +Iniciar()
+    +ObtenerTiempo(): TiempoFinal
+}
+
+class Puntuacion {
+    +Aumentar()
+    +ObtenerPuntuacion(): PuntuacionFinal
+}
+
+class ContadorAnillo {
+    +ObtenerCantidad(NumAnillo): NumAnilloTot
+}
+
+class Humano
+class Nivel{
+    -dificultad
+    -puntuacion
+}
+
+class PowerUp {
+    +Usar()
+    +ObtenerPowerUp(): PowerUp
+}
+
+class Elemento
+class Enemigo
+class ObjetoPrincipal
+
+SonicGame "1" *-- "1" Sonic
+SonicGame "1" *-- "*" Anillo
+SonicGame "1" *-- "*" VidaExtra
+SonicGame "1" *-- "1" Tv
+SonicGame "1" *-- "*" Checkpoint
+SonicGame "1" *-- "1" GoalSign
+SonicGame "1" *-- "*" Escudo
+SonicGame "1" *-- "*" Invincibilidad
+SonicGame "1" *-- "*" SpeedShoe
+SonicGame "1" *-- "*" Resorte
+SonicGame "1" *-- "*" LoopLoop
+SonicGame "1" *-- "*" SpeedBooster
+SonicGame "1" *-- "*" TunelTubo
+SonicGame "1" *-- "*" PlataformaMovil
+SonicGame "1" *-- "*" PuenteColgante
+SonicGame "1" *-- "*" Pua
+SonicGame "1" *-- "*" Agua
+SonicGame "1" *-- "*" BurbujaAire
+SonicGame "1" *-- "*" Badnik
+SonicGame "1" *-- "*" AnimalAtrapado
+SonicGame "1" *-- "1" DrRobotnik
+SonicGame "1" *-- "*" MaquinaRobotnik
+SonicGame "1" *-- "*" EstatuaSonic
+SonicGame "1" *-- "*" ChaosEmerald
+SonicGame "1" *-- "1" Tiempo
+SonicGame "1" *-- "1" Puntuacion
+SonicGame "1" *-- "1" ContadorAnillo
+SonicGame "1" *-- "*" Nivel
+
+Sonic -|> Animal
+AnimalAtrapado -|> Animal
+MaquinaRobotnik -|> Maquina
+Badnik -|> Maquina
+DrRobotnik -|> Humano
+
+Sonic "1" o-- "*" Anillo
+Sonic "1" o-- "*" VidaExtra
+Sonic "1" o-- "1" Tv
+Sonic "1" o-- "*" Checkpoint
+Sonic "1" o-- "1" GoalSign
+Sonic "1" o-- "*" Escudo
+Sonic "1" o-- "*" Invincibilidad
+Sonic "1" o-- "*" SpeedShoe
+Sonic "1" o-- "*" Resorte
+Sonic "1" o-- "*" LoopLoop
+Sonic "1" o-- "*" SpeedBooster
+Sonic "1" o-- "*" TunelTubo
+Sonic "1" o-- "*" PlataformaMovil
+Sonic "1" o-- "*" PuenteColgante
+Sonic "1" o-- "*" Pua
+Sonic "1" o-- "*" Agua
+Sonic "1" o-- "*" BurbujaAire
+Sonic "1" o-- "*" Badnik
+Sonic "1" o-- "1" DrRobotnik
+Sonic "1" o-- "*" MaquinaRobotnik
+Sonic "1" o-- "*" ChaosEmerald
+Sonic "1" o-- "1" Tiempo
+Sonic "1" o-- "1" Puntuacion
+Sonic "1" o-- "1" ContadorAnillo
+
+Tiempo "1" o-- "1" GoalSign
+Checkpoint "1" o-- "1" VidaExtra
+DrRobotnik "1" o-- "*" Badnik
+DrRobotnik "1" o-- "*" MaquinaRobotnik
+Badnik "1" o-- "*" AnimalAtrapado
+Puntuacion "1" o-- "*" Anillo
+Nivel "1" o-- "1" Puntuacion
+ContadorAnillo "1" o-- "*" Anillo
+
+Agua "1" *-- "*" BurbujaAire
+Tv "1" *-- "1" VidaExtra
+Tv "1" *-- "10" Anillo
+Tv "1" *-- "1" Escudo
+Tv "1" *-- "1" Invincibilidad
+Tv "1" *-- "1" SpeedShoe
+Jugador "1" *-- "1" Sonic
+Jugador "1" *-- "1" SonicGame
+
+Escudo -|> PowerUp
+Invincibilidad -|> PowerUp
+SpeedShoe -|> PowerUp
+
+Resorte -|> Elemento
+LoopLoop -|> Elemento
+SpeedBooster -|> Elemento
+TunelTubo -|> Elemento
+PlataformaMovil -|> Elemento
+PuenteColgante -|> Elemento
+Pua -|> Elemento
+Agua -|> Elemento
+BurbujaAire -|> Elemento
+EstatuaSonic -|> Elemento
+ChaosEmerald -|> Elemento
+Tiempo -|> Elemento
+Puntuacion -|> Elemento
+ContadorAnillo -|> Elemento
+
+Badnik -|> Enemigo
+DrRobotnik -|> Enemigo
+MaquinaRobotnik -|> Enemigo
+
+Anillo -|> ObjetoPrincipal
+VidaExtra -|> ObjetoPrincipal
+Tv -|> ObjetoPrincipal
+Checkpoint -|> ObjetoPrincipal
+GoalSign -|> ObjetoPrincipal
+@enduml
