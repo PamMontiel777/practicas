@@ -13,6 +13,9 @@ public:
         encendido = true;
         otro = true;
     }
+    void Ejecutar(){
+        cout<<"Ejecutando chorizo"<<endl;
+    }
 };
 int main (int argc, char const *argv[])
 {
@@ -73,7 +76,7 @@ int main (int argc, char const *argv[])
     cout<<"Memoria dinamica: "<<endl;
     cout<<"-----------------------------------------------------------"<<endl;
     cout<<"Malloc"<<malloc(sizeof(int))<<endl;
-    //duardar direccion en un puntero//
+    //guardar direccion en un puntero//
     void* memoriaDinamica = malloc((sizeof(int)));
 
     cout<<endl<<"-----------------------------------------------------------"<<endl;
@@ -99,6 +102,14 @@ int main (int argc, char const *argv[])
     //c++
     Chorizo* punteroCXX = new Chorizo ();
     delete punteroCXX;
+
+
+        // indireccion vs operador ->
+        //Indireccion
+        (*punteroCXX).Inicializar();
+        //operador ->
+        punteroCXX->Inicializar();
+
 
     return 0;
 }
