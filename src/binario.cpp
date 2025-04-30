@@ -25,31 +25,35 @@ int main(int argc, char const *argv[])
 
     archivoSalida.write((const char*)(&p1), sizeof(Persona));
     archivoSalida.write((const char*)(&p2), sizeof(Persona));
-
+    
     //Escribir en el archivo de salida
     archivoSalida << "Hola, este es un archivo de salida." << endl;
 
     //cerrar archivo de salida
     archivoSalida.close();
-    return 0;
 
     // //--------------------------------------------
-    // ifstream archivoEntrada;
+    ifstream archivoEntrada;
+    Persona p;
     // string linea;
 
     // //leer archico entrada
-    // archivoEntrada.open("archico_salida.txt");
-    // if (!archivoEntrada){
-    //     cerr << "Error al abrir el archivo de entrada." << endl;
-    //     return 1;
-    // }
+    archivoEntrada.open("archivo_salida.bin", ios::binary);
+    if (!archivoEntrada){
+    cerr << "Error al abrir el archivo de entrada." << endl;
+    return 1;
+    }
 
+    while (archivoEntrada.read((char*)(&p), sizeof(Persona))){
+        cout << "Nombre: " << p.nombre << ", Edad:" << p.edad << endl;
+    }
+    
     // //leer del archivo de entrada
-    // while(getline(archivoEntrada, linea)){
-    //     cout << linea << endl;
+    //while(getline(archivoEntrada, linea)){
+    //cout << linea << endl;
     // }
 
     // //cerrar archivo de entrada
-    // archivoEntrada.close();
-    // return 0;
+     archivoEntrada.close();
+     return 0;
 }
