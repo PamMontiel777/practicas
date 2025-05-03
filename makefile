@@ -22,3 +22,11 @@ bin/binario : src/binario.cpp
 
 binario : bin/binario
 	./bin/binario
+
+
+pokemon : bin/pokemon
+	./bin/pokemon
+
+bin/pokemon : src/vector.cpp
+	g++ src/vector.cpp -o bin/pokemon
+
